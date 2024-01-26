@@ -13,10 +13,12 @@ void merge(int low,int mid,int hi,int arrA[])
 
     int arr_left[sizeL], arr_right[sizeR];
 
-    for(int i = 0; i <= sizeL; i++){
+    for(int i = 0; i <= sizeL; i++)
+    {
         arr_left[i] = arrA[i];
     }
-    for(int j = 0; j <= sizeR; j++){
+    for(int j = 0; j <= sizeR; j++)
+    {
         arr_right[j] = arrA[mid + 1 + j];
     }
     arr_left[sizeL] = 999999;
@@ -35,12 +37,7 @@ void merge(int low,int mid,int hi,int arrA[])
             j++;
         }
     }
-    // print the merge sorted array
 
-    for(int i = 0; i < (sizeL +sizeR); i++)
-    {
-        cout << arrA[i] << " ";
-    }
 }
 
 
@@ -52,8 +49,8 @@ void mergeSort(int low, int hi, int arrA[])
     if(low < hi)
     {
         int mid = ((low + hi)/2);
-        mergeSort(low, mid);
-        mergeSort(mid +1, hi);
+        mergeSort(low, mid,arrA);
+        mergeSort(mid +1, hi, arrA);
         merge(low, mid, hi, arrA);
 
     }
@@ -83,6 +80,15 @@ int main()
     int low = 0, hi = sizeA -1;
 
     mergeSort(low, hi, arrA);
+
+
+
+    // print the merge sorted array
+
+    for(int i = 0; i < sizeA; i++)
+    {
+        cout << arrA[i] << " ";
+    }
 
 
     return 0;
