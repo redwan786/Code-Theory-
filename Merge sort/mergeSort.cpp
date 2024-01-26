@@ -4,9 +4,10 @@ using namespace std;
 
 
 
+//*************  merge  *****************
+
 void merge(int low,int mid,int hi,int arrA[])
 {
-
     int sizeL = mid +1;
     int sizeR = hi - mid;
 
@@ -18,15 +19,8 @@ void merge(int low,int mid,int hi,int arrA[])
     for(int j = 0; j <= sizeR; j++){
         arr_right[j] = arrA[mid + 1 + j];
     }
-
-
     arr_left[sizeL] = 999999;
     arr_right[sizeR] = 999999;
-
-
-
-
-
 
     for(int k = low, i = 0, j = 0; k <= hi; k++)
     {
@@ -39,21 +33,36 @@ void merge(int low,int mid,int hi,int arrA[])
         {
             arrA[k] = arr_right[j];
             j++;
-
         }
-
     }
-
     // print the merge sorted array
 
-    for(int i = 0; i < (sizeL + sizeR); i++)
+    for(int i = 0; i < (sizeL +sizeR); i++)
     {
         cout << arrA[i] << " ";
     }
-
-
 }
 
+
+
+//*********** merge sort *************
+
+void mergeSort(int low, int hi, int arrA[])
+{
+    if(low < hi)
+    {
+        int mid = ((low + hi)/2);
+        mergeSort(low, mid);
+        mergeSort(mid +1, hi);
+        merge(low, mid, hi, arrA);
+
+    }
+}
+
+
+
+
+//************ main ***************
 
 int main()
 {
