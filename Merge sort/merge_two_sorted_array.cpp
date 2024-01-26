@@ -1,8 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void mergeTwoSortedArray(int arrA[],int arrB[],int sizeA, int sizeB)
+void merge(int arrA[],int arrB[],int sizeA, int sizeB)
 {
+
     int size_merge = sizeA + sizeB;
     int arr_merge[size_merge];
 
@@ -58,7 +59,7 @@ int main()
         cin >> arrB[i];
     }
 
-    mergeTwoSortedArray(arrA,arrB,sizeA,sizeB);
+    merge(arrA,arrB,sizeA,sizeB);
 
 
     return 0;
