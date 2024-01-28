@@ -28,10 +28,10 @@ int main()
 
 
     //******** address value print *******
-    cout << p -> data << endl;
-    cout << q -> data << endl;
-    cout << r -> data << endl;
-    cout << s -> data << endl;
+    cout << p ->  data << endl;
+    cout << p -> next -> data << endl;
+    cout << p -> next -> next -> data << endl;
+    cout << p -> next -> next -> next -> data << endl;
 
     return 0;
 
