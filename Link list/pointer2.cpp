@@ -27,7 +27,11 @@ int main()
 
 
 
-
+    //******** address value print *******
+    cout << p -> data << endl;
+    cout << q -> data << endl;
+    cout << r -> data << endl;
+    cout << s -> data << endl;
 
     return 0;
 
