@@ -20,6 +20,20 @@ void printing()
     }
 }
 
+void searching(int val)
+{
+    node *curr_node = root;
+
+    while(curr_node != NULL)
+    {
+        if(curr_node ->data == val)
+        {
+            cout << curr_node -> data << " found" << endl;
+        }
+        curr_node = curr_node -> next;
+    }
+}
+
 int main()
 {
     node *p, *q, *r, *s;
@@ -40,6 +54,8 @@ int main()
 
     root = p;
     printing();
+    cout << endl;
+    searching(10);
 
     return 0;
 
