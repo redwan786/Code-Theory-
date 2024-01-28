@@ -7,10 +7,21 @@ struct node
     node *next;
 };
 
+node *root = NULL;
+
+void printing()
+{
+    node *curr_node = root;
+
+    while(curr_node != NULL)
+    {
+        cout << curr_node -> data << endl;
+        curr_node = curr_node ->next;
+    }
+}
+
 int main()
 {
-
-
     node *p, *q, *r, *s;
 
     p = new node();
@@ -27,13 +38,8 @@ int main()
     r -> next = s;
     s -> next = NULL;
 
-
-
-    //******** address value print *******
-    cout << p ->  data << endl;
-    cout << p -> next -> data << endl;
-    cout << p -> next -> next -> data << endl;
-    cout << p -> next -> next -> next -> data << endl;
+    root = p;
+    printing();
 
     return 0;
 
