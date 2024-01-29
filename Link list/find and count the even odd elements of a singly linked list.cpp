@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -10,15 +9,31 @@ struct node
 
 node *root = NULL;
 
-void last_node_value()
+void find_even_odd()
 {
     node *curr_node=root;
-    while(curr_node->next!=NULL)
-    {
-        curr_node=curr_node->next;
 
+    cout << "Even elements are: ";
+    while(curr_node!=NULL)
+    {
+        if((curr_node->data)%2 == 0)
+        {
+            cout << curr_node->data << " ";
+        }
+        curr_node=curr_node->next;
     }
-    cout << "Last node value of the singly linked list is : "<<curr_node->data;
+
+    curr_node=root;
+    cout << endl <<"Odd elements are: ";
+    while(curr_node!=NULL)
+    {
+        if((curr_node->data)%2 != 0)
+        {
+            cout << curr_node->data << " ";
+        }
+        curr_node=curr_node->next;
+    }
+
 
 }
 
@@ -43,7 +58,8 @@ int main()
 
     root=p;
 
-    last_node_value();
+    find_even_odd();
 
 
 }
+
