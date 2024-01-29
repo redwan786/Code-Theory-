@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -9,16 +10,15 @@ struct node
 
 node *root = NULL;
 
-void find_length()
+void last_node_value()
 {
-    int length_count =0;
     node *curr_node=root;
     while(curr_node->next!=NULL)
     {
         curr_node=curr_node->next;
-        length_count++;
+
     }
-    cout << "Length of the singly linked list is : "<<length_count+1;
+    cout << "Last node value of the singly linked list is : "<<curr_node->data;
 
 }
 
@@ -43,7 +43,7 @@ int main()
 
     root=p;
 
-    find_length();
+    last_node_value();
 
 
 }
