@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -22,20 +21,18 @@ void printing()
     cout << endl;
 }
 
-void insertAtBeginning(int value)
+void deleteFirstNode()
 {
-    node *newNode = new node();  // Create a new node
-    newNode->data = value;       // Set its data
-
-    newNode->next = NULL;        // Last node bole NULL hoiche
-
-    node *tem = root;      // To traverse the list
-    while(tem->next != NULL){
-        tem = tem->next;
+    if (root == NULL)
+    {
+        cout << "List is already empty. Cannot delete first node.\n";
+        return;
     }
-    tem->next =newNode;
 
+    node *temp = root;
+    root = root->next;
 
+    delete temp;  // Free the memory of the deleted node
 }
 
 int main()
@@ -67,19 +64,17 @@ int main()
             temp = temp->next;
         }
     }
+
+    cout << "Original list:\n";
     printing();
 
-    cout << "Enter value to insert at the beginning: ";
-    int valueToInsert;
-    cin >> valueToInsert;
+    deleteFirstNode();
 
-    insertAtBeginning(valueToInsert);
-
-    cout << "Updated list after inserting at the last:\n";
+    cout << "List after deleting the first node:\n";
     printing();
 
-
+    // Don't forget to release the allocated memory
+    delete[] p_i;
 
     return 0;
 }
-
