@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -22,19 +21,20 @@ void printing()
     cout << endl;
 }
 
-void insertAtBeginning(int value)
+void insertAtPosition(int position, int value)
 {
     node *newNode = new node();  // Create a new node
     newNode->data = value;       // Set its data
 
-    newNode->next = NULL;        // Last node bole NULL hoiche
+        // Insert at a specific position
+        node *temp = root;
+        for (int i = 0; i < position - 1 && temp != NULL; i++)
+        {
+            temp = temp->next;
+        }
 
-    node *tem = root;      // To traverse the list
-    while(tem->next != NULL){
-        tem = tem->next;
-    }
-    tem->next =newNode;
-
+        newNode->next = temp->next;
+        temp->next = newNode;
 
 }
 
@@ -67,19 +67,20 @@ int main()
             temp = temp->next;
         }
     }
+
     printing();
 
-    cout << "Enter value to insert at the beginning: ";
-    int valueToInsert;
+    int position, valueToInsert;
+    cout << "Enter position to insert: ";
+    cin >> position;
+
+    cout << "Enter value to insert at position " << position << ": ";
     cin >> valueToInsert;
 
-    insertAtBeginning(valueToInsert);
+    insertAtPosition(position, valueToInsert);
 
-    cout << "Updated list after inserting at the last:\n";
+    cout << "Updated list after inserting at position " << position << ":\n";
     printing();
-
-
 
     return 0;
 }
-
