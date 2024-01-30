@@ -41,10 +41,10 @@ int main()
     cout << "How many values do you insert in the list : ";
     cin >> num;
 
-    node *p_i = new node[num];  // Allocate memory for all nodes
+    node *p = new node[num];  // Allocate memory for all nodes
 
     // Initialize root to point to the first node
-    root = &p_i[0];
+    root = &p[0];
 
     cout << "Enter " << num << " values :";
 
@@ -60,7 +60,7 @@ int main()
         }
         else
         {
-            temp->next = &p_i[i + 1];  // Use the next allocated node
+            temp->next = &p[i + 1];  // Use the next allocated node
             temp = temp->next;
         }
     }
@@ -73,8 +73,6 @@ int main()
     cout << "List after deleting the first node:\n";
     printing();
 
-    // Don't forget to release the allocated memory
-    delete[] p_i;
 
     return 0;
 }

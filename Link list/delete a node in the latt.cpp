@@ -1,5 +1,5 @@
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 struct node
@@ -14,26 +14,50 @@ void printing()
 {
     node *curr_node = root;
 
-    while(curr_node != NULL)
+    while (curr_node != NULL)
     {
-        cout << curr_node -> data << " ";
-        curr_node = curr_node ->next;
+        cout << curr_node->data << " ";
+        curr_node = curr_node->next;
     }
-    cout<< endl;
+    cout << endl;
 }
 
-void deleteFirstNode()
+
+
+void deleteLastNode()
 {
     if (root == NULL)
     {
-        cout << "List is already empty. Cannot delete first node.\n";
+        cout << "List is empty. Cannot delete last node.\n";
         return;
     }
 
-    node *temp = root;
-    root = root->next;
+    node *current = root;
+    node *previous = NULL;
 
-    delete temp;  // Free the memory of the deleted node
+    // current is now pointing to the last node
+    // previous is pointing to the second-to-last node
+
+    while (current->next != NULL)
+    {
+        previous = current;
+        current = current->next;
+    }
+
+
+
+    if (previous != NULL)
+    {
+        // Update the next pointer of the second-to-last node to nullptr
+        previous->next = NULL;
+        delete current; // Free the memory of the last node
+    }
+    else
+    {
+        // If there is only one node in the list
+        delete root;
+        root = NULL;
+    }
 }
 
 int main()
@@ -42,26 +66,22 @@ int main()
     cout << "How many values do you insert in the list : ";
     cin >> num;
 
-    node *p = new node[num];  // Allocate memory for all nodes
-
-    // Initialize root to point to the first node
-    root = &p[0];
+    root = new node;
+    node *temp = root;
 
     cout << "Enter " << num << " values :";
 
-    node *temp = root; // To traverse the list
-
-    for(int i = 0; i < num; i++)
+    for (int i = 0; i < num; i++)
     {
         cin >> temp->data;
 
-        if(i == (num-1))
+        if (i == (num - 1))
         {
             temp->next = NULL;
         }
         else
         {
-            temp->next = &p[i + 1];  // Use the next allocated node
+            temp->next = new node;
             temp = temp->next;
         }
     }
@@ -69,13 +89,10 @@ int main()
     cout << "Original list:\n";
     printing();
 
-    deleteFirstNode();
+    deleteLastNode();
 
-    cout << "List after deleting the first node:\n";
+    cout << "List after deleting the last node:\n";
     printing();
-
-    // Don't forget to release the allocated memory
-    delete[] p;
 
     return 0;
 }
