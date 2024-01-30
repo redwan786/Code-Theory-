@@ -22,26 +22,35 @@ void printing()
 
 int main()
 {
-    node *p, *q, *r, *s;
+    int num;
+    cout << "How many values do you insert in the list : ";
+    cin >> num;
 
-    p = new node();
-    q = new node();
-    r = new node();
-    s = new node();
+    node *p_i = new node[num];  // Allocate memory for all nodes
 
-    p -> data = 3;
-    q -> data = 8;
-    r -> data = 10;
-    s -> data = 12;
-    p -> next = q;
-    q -> next = r;
-    r -> next = s;
-    s -> next = NULL;
+    // Initialize root to point to the first node
+    root = &p_i[0];
 
-    root = p;
+    cout << "Enter " << num << " values :";
+
+    node *temp = root; // To traverse the list
+
+    for(int i = 0; i < num; i++)
+    {
+        cin >> temp->data;
+
+        if(i == (num-1))
+        {
+            temp->next = NULL;
+        }
+        else
+        {
+            temp->next = &p_i[i + 1];  // Use the next allocated node
+            temp = temp->next;
+        }
+    }
+
     printing();
 
     return 0;
-
 }
-
