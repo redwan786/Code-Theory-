@@ -18,17 +18,6 @@ void printing()
         cout << curr_node -> data << " ";
         curr_node = curr_node ->next;
     }
-    cout << endl;
-}
-
-void insertAtBeginning(int value)
-{
-    node *newNode = new node();  // Create a new node
-    newNode->data = value;       // Set its data
-
-    newNode->next = root;        // Make it point to the current root //link korechi
-
-    root = newNode;              // Update root to the new node
 }
 
 int main()
@@ -37,10 +26,10 @@ int main()
     cout << "How many values do you insert in the list : ";
     cin >> num;
 
-    node *p_i = new node[num];  // Allocate memory for all nodes
+    node *p = new node[num];  // Allocate memory for all nodes
 
     // Initialize root to point to the first node
-    root = &p_i[0];
+    root = &p[0];
 
     cout << "Enter " << num << " values :";
 
@@ -56,22 +45,12 @@ int main()
         }
         else
         {
-            temp->next = &p_i[i + 1];  // Use the next allocated node
+            temp->next = &p[i + 1];  // Link to the next allocated node
             temp = temp->next;
         }
     }
+
     printing();
-
-    cout << "Enter value to insert at the beginning: ";
-    int valueToInsert;
-    cin >> valueToInsert;
-
-    insertAtBeginning(valueToInsert);
-
-    cout << "Updated list after inserting at the beginning:\n";
-    printing();
-
-
 
     return 0;
 }
