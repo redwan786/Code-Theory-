@@ -27,9 +27,15 @@ void insertAtBeginning(int value)
     node *newNode = new node();  // Create a new node
     newNode->data = value;       // Set its data
 
-    newNode->next = root;        // Make it point to the current root //link korechi
+    newNode->next = NULL;        // Last node bole NULL hoiche
 
-    root = newNode;              // Update root to the new node
+    node *tem = root;      // To traverse the list
+    while(tem->next != NULL){
+        tem = tem->next;
+    }
+    tem->next =newNode;
+
+
 }
 
 int main()
@@ -69,7 +75,7 @@ int main()
 
     insertAtBeginning(valueToInsert);
 
-    cout << "Updated list after inserting at the beginning:\n";
+    cout << "Updated list after inserting at the last:\n";
     printing();
 
 
