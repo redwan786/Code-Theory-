@@ -45,12 +45,15 @@ int main()
         }
         else
         {
-            temp->next = &p[i + 1];  // Use the next allocated node
+            temp->next = &p[i + 1];  // Link to the next allocated node
             temp = temp->next;
         }
     }
 
     printing();
+    // Don't forget to release the allocated memory
+    delete[] p;
+
 
     return 0;
 }
