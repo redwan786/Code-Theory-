@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -19,17 +18,21 @@ void printing()
         cout << curr_node -> data << " ";
         curr_node = curr_node ->next;
     }
-    cout << endl;
+    cout<< endl;
 }
 
-void insertAtBeginning(int value)
+void deleteFirstNode()
 {
-    node *newNode = new node();  // Create a new node
-    newNode->data = value;       // Set its data
+    if (root == NULL)
+    {
+        cout << "List is already empty. Cannot delete first node.\n";
+        return;
+    }
 
-    newNode->next = root;        // Make it point to the current root //link korechi
+    node *temp = root;
+    root = root->next;
 
-    root = newNode;              // Update root to the new node
+    delete temp;  // Free the memory of the deleted node
 }
 
 int main()
@@ -61,18 +64,17 @@ int main()
             temp = temp->next;
         }
     }
+
+    cout << "Original list:\n";
     printing();
 
-    cout << "Enter value to insert at the beginning: ";
-    int valueToInsert;
-    cin >> valueToInsert;
+    deleteFirstNode();
 
-    insertAtBeginning(valueToInsert);
-
-    cout << "Updated list after inserting at the beginning:\n";
+    cout << "List after deleting the first node:\n";
     printing();
 
-
+    // Don't forget to release the allocated memory
+    delete[] p_i;
 
     return 0;
 }
