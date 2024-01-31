@@ -5,7 +5,6 @@ struct node
 {
     int data;
     node *next;
-    node *prev;
 };
 
 node *root = NULL;
@@ -14,14 +13,12 @@ void printing()
 {
     node *curr_node = root;
 
-    do
+    while(curr_node != NULL)
     {
-        cout << curr_node->data << " ";
-        curr_node = curr_node->next;
+        cout << curr_node -> data << " ";
+        curr_node = curr_node ->next;
     }
-    while(curr_node != NULL);
 }
-
 
 int main()
 {
@@ -42,16 +39,6 @@ int main()
     {
         cin >> temp->data;
 
-        if (i == 0)
-        {
-            temp->prev = NULL;
-        }
-        else
-        {
-            temp->prev = &p[i - 1];  // Set prev pointer
-        }
-
-
         if(i == (num-1))
         {
             temp->next = NULL;
@@ -63,11 +50,11 @@ int main()
         }
     }
 
-    // Print the doubly linked list
     printing();
-
     // Don't forget to release the allocated memory
     delete[] p;
 
+
     return 0;
 }
+
