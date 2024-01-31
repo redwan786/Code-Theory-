@@ -1,9 +1,10 @@
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 struct node
 {
     int data;
+    node *prev;  // Add a pointer to the previous node
     node *next;
 };
 
@@ -13,10 +14,10 @@ void printing()
 {
     node *curr_node = root;
 
-    while(curr_node != NULL)
+    while (curr_node != NULL)
     {
-        cout << curr_node -> data << " ";
-        curr_node = curr_node ->next;
+        cout << curr_node->data << " ";
+        curr_node = curr_node->next;
     }
 }
 
@@ -30,31 +31,32 @@ int main()
 
     // Initialize root to point to the first node
     root = &p[0];
+    root->prev = NULL;
 
     cout << "Enter " << num << " values :";
 
     node *temp = root; // To traverse the list
 
-    for(int i = 0; i < num; i++)
+    for (int i = 0; i < num; i++)
     {
         cin >> temp->data;
 
-        if(i == (num-1))
+        if (i == (num - 1))
         {
             temp->next = NULL;
         }
         else
         {
             temp->next = &p[i + 1];  // Link to the next allocated node
+            temp->next->prev = temp; // Set the previous pointer of the next node
             temp = temp->next;
         }
     }
 
     printing();
+
     // Don't forget to release the allocated memory
     delete[] p;
 
-
     return 0;
 }
-
