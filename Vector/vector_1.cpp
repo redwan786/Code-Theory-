@@ -7,7 +7,7 @@ int main()
     vector<int> s;
 
     // Ask the user for the number of values to input
-    cout << "How many values you want to keep:";
+    cout << "How many values do you want to keep: ";
     int size;
 
     // Input the size
@@ -26,26 +26,25 @@ int main()
         // Push the value to the vector
         s.push_back(temp);
     }
+
     // Display the size of the vector
-    cout << "Size of vector: " << s.size();
-    cout << "\n";
+    cout << "Size of vector: " << s.size() << "\n";
 
     // Display the values in the vector using a while loop
     int i = 0;
+    cout << "Vector Values: ";
     while(i != s.size())
     {
         cout << s[i] << " ";
         i++;
     }
+    cout << "\n";
 
-    // Copying values from s to anotherVector
-    //vector<int> anotherVector = s;
-
-    // Add more values to anotherVector
+    // Add more values to s vector
     int numOfValue;
-    cout << "\nEnterhow many values do you add: ";
+    cout << "\nEnter how many values you want to add: ";
     cin >> numOfValue;
-    cout << "Enter "<<numOfValue<<" values: ";
+    cout << "Enter " << numOfValue << " values: ";
 
     for (int j = 0; j < numOfValue; j++)
     {
@@ -54,11 +53,28 @@ int main()
         s.push_back(temp);
     }
 
-   // Display the values in the vector using a while loop
+    // Display the size of the vector after adding values
+    cout << "Size of the vector after adding some values: " << s.size() << "\n";
+
+    // Display the values in the vector using a while loop
     i = 0;
+    cout << "Vector Values after adding some values: ";
     while(i != s.size())
     {
         cout << s[i] << " ";
+        i++;
+    }
+    cout << "\n";
+
+    // Copying values from s to anotherVector
+    vector<int> anotherVector = s;
+
+    // Display the values in anotherVector using a while loop
+    i = 0;
+    cout << "Copying the vector to another vector & Vector Values displayed by another vector: ";
+    while(i != anotherVector.size())
+    {
+        cout << anotherVector[i] << " ";
         i++;
     }
 
