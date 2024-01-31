@@ -20,7 +20,8 @@ void printing()
     {
         cout << curr_node->data << endl;
         curr_node = curr_node->next;
-    } while (curr_node != NULL && curr_node != root);
+    }
+    while (curr_node != NULL && curr_node != root);
 }
 
 
