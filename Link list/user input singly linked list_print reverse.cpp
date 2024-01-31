@@ -14,9 +14,8 @@ void printing(node *curr_node)
     if (curr_node == NULL){
         return;
     }
-    cout << curr_node->data << " ";
     printing(curr_node->next);
-
+    cout << curr_node->data << " ";
 }
 
 int main()
