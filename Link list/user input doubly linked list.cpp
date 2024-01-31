@@ -41,7 +41,7 @@ int main()
     {
         cin >> temp->data;
 
-        if (i == (num - 1))
+        if(i == num-1)
         {
             temp->next = NULL;
         }
@@ -51,6 +51,9 @@ int main()
             temp->next->prev = temp; // Set the previous pointer of the next node
             temp = temp->next;
         }
+
+
+
     }
 
     printing();
