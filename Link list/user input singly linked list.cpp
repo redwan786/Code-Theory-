@@ -50,6 +50,8 @@ int main()
         }
     }
 
+
+
     printing();
     // Don't forget to release the allocated memory
     delete[] p;
