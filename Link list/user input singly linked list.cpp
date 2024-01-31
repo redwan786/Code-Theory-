@@ -50,7 +50,12 @@ int main()
         }
     }
 
+    /*
+    +------+-------+        +------+------+       +------+------+
+    | Data |  NEXT |  -->  | Data | NEXT  |  --> | Data | NULL  |
+    +------+-------+        +------+------+       +------+------+
 
+    */
 
     printing();
     // Don't forget to release the allocated memory
