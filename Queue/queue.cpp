@@ -1,30 +1,26 @@
-#include<bits/stdc++.h> // Including the entire standard library
+#include <bits/stdc++.h> // Including the entire standard library
 using namespace std;
 
-int main()
-{
-    stack<int>st; // Creating an empty stack of integers
-    st.push(10); // Pushing 10 onto the stack
-    st.push(20); // Pushing 20 onto the stack
-    st.push(30); // Pushing 30 onto the stack
-    st.push(40); // Pushing 40 onto the stack
+int main() {
+    queue<int> q; // Creating an empty queue of integers
+    q.push(10);   // Pushing 10 onto the queue
+    q.push(20);   // Pushing 20 onto the queue
+    q.push(30);   // Pushing 30 onto the queue
+    q.push(40);   // Pushing 40 onto the queue
 
-    cout << "Size :" << st.size()<< endl; // Outputting the size of the stack (4)
+    cout << "Size :" << q.size() << endl; // Outputting the size of the queue (4)
 
-    if(st.empty()) // Check if the stack is empty
+    if (q.empty()) // Check if the queue is empty
     {
-        cout << "Stack is  empty"; // Display message if stack is empty
-    }
-    else
-    {
-        while(!st.empty()) // Loop until stack is empty
+        cout << "Queue is empty"; // Display message if queue is empty
+    } else {
+        while (!q.empty()) // Loop until queue is empty
         {
-            int val = st.top(); // Putting the top element of the stack
-            cout << val << endl; // Outputting the top element
-            st.pop(); // Removing the top element from the stack
+            int val = q.front(); // Get the front element of the queue
+            cout << val << endl; // Output the front element
+            q.pop(); // Remove the front element from the queue
         }
     }
+
+    return 0;
 }
-
-
-
