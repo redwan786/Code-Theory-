@@ -14,6 +14,9 @@ int main() {
     {
         cout << "Queue is empty"; // Display message if queue is empty
     } else {
+
+        cout << "First element: " << q.front() << endl;
+        cout << "Last element: " << q.back()<< endl;
         while (!q.empty()) // Loop until queue is empty
         {
             int val = q.front(); // Get the front element of the queue
