@@ -1,21 +1,21 @@
-#include<bits/stdc++.h> // Include necessary headers
+#include <bits/stdc++.h> // Include necessary headers
 
 using namespace std; // Using the standard namespace
 
-// Function to display contents of the stack
-void display(stack<int> st)
+// Function to display contents of the queue
+void display(queue<int> q)
 {
-    if(st.empty()) // Check if the stack is empty
+    if(q.empty()) // Check if the queue is empty
     {
-        cout << "From Other Function:- Stack is already empty...To show elements using other function comment comment some line."; // Display message if stack is empty
+        cout << "From Other Function: Queue is already empty... To show elements using other function, uncomment some lines."; // Display message if queue is empty
     }
     else
     {
-        cout << "From Other Function:- Contents of the stack: "; // Display message if stack is not empty
-        while (!st.empty()) // Loop until stack is empty
+        cout << "From Other Function: Contents of the queue: "; // Display message if queue is not empty
+        while (!q.empty()) // Loop until queue is empty
         {
-            cout << st.top() << " "; // Display top element of stack
-            st.pop(); // Remove top element of stack
+            cout << q.front() << " "; // Display front element of queue
+            q.pop(); // Remove front element of queue
         }
         cout << endl; // Move to next line
     }
@@ -23,40 +23,38 @@ void display(stack<int> st)
 
 int main()
 {
-    stack<int> st; // Create an empty stack to store integers
-    cout << "How many values to insert in the stack: ";
+    queue<int> q; // Create an empty queue to store integers
+    cout << "How many values to insert in the queue: ";
     int num;
-    cin >> num; // Read the number of values to insert into the stack
-    cout << "Enter " << num << " values to insert in the stack: ";
-    for(int i = 0; i < num; i++) // Loop to insert values into the stack
+    cin >> num; // Read the number of values to insert into the queue
+    cout << "Enter " << num << " values to insert in the queue: ";
+    for(int i = 0; i < num; i++) // Loop to insert values into the queue
     {
         int temp;
         cin >> temp; // Read value from user
-        st.push(temp); // Insert value into the stack
+        q.push(temp); // Insert value into the queue
     }
-    cout << "Size : " << st.size() << endl; // Display the size of the stack
+    cout << "Size : " << q.size() << endl; // Display the size of the queue
 
     /*
-    // Check if stack is empty
-    if(st.empty())
+    // Check if queue is empty
+    if(q.empty())
     {
-        cout << "Stack is already empty"; // Display message if stack is empty
+        cout << "Queue is already empty"; // Display message if queue is empty
     }
     else
     {
-        cout << "From main function:- Contents of the stack: "; // Display message if stack is not empty
-        while (!st.empty()) // Loop until stack is empty
+        cout << "From main function: Contents of the queue: "; // Display message if queue is not empty
+        while (!q.empty()) // Loop until queue is empty
         {
-            cout << st.top() << " "; // Display top element of stack
-            st.pop(); // Remove top element of stack
+            cout << q.front() << " "; // Display front element of queue
+            q.pop(); // Remove front element of queue
         }
         cout << endl; // Move to next line
     }
-
     */
 
-    display(st); // Call the display function to show the contents of the stack
+    display(q); // Call the display function to show the contents of the queue
 
     return 0; // Return 0 to indicate successful completion
 }
-
