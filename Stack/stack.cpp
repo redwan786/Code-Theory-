@@ -15,6 +15,7 @@ int main()
     {
         cout << "Stack is  empty"; // Display message if stack is empty
     }
+    st.
     else
     {
         while(!st.empty()) // Loop until stack is empty
